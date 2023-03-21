@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: TOAST-HR-TOKEN
+
+toast:
+  security:
+    config:
+      jwt:
+        sign: toast
+        issuer: toast_bread
+        secret: Dont_eat_on_toast
+        expire: 8640 # 单位：秒；100天
+      password:
+        encrypt:
+          repeat: 5
+          salt: toast_bread

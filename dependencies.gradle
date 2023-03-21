@@ -1,0 +1,114 @@
+ext.versions = [                // 定义全部的依赖库版本号
+                                springboot           : '2.2.5.RELEASE',      // SpringBoot版本号
+                                springcloud          : 'Hoxton.SR3', // SpringCloud版本号
+                                alibabacloud         : '2.2.1.RELEASE', // SpringCloudAlibaba版本号
+                                lombok               : '1.18.20', // Lombok版本号
+                                junit                : '5.6.3', // 配置JUnit测试工具的版本编号
+                                junitPlatformLauncher: '1.6.3',  // JUnit测试工具运行平台版本编号
+                                hibernateValidator   : '6.2.0.Final', // JSR303验证库
+                                mybatis              : '3.5.7', // MyBatis的开发版本
+                                mybatisSpringBoot    : '2.2.0', // Mybatis-SpringBoot整合依赖
+                                mybatisPlus          : '3.4.3', // MyBatisPlus依赖版本
+                                mysql                : '8.0.25', // MySQL数据库驱动版本
+                                druid                : '1.2.8', // Druid版本号
+                                swagger              : '3.0.0', // Swagger版本号
+                                nacos                : '2.1.0', // Nacos版本号
+                                httpclient           : '4.5.13', // HttpClient版本号
+                                feignHttpclient      : '11.6', // FeignHttpClient版本号
+                                sentinel             : '1.8.2', // Sentinel版本号
+                                caffeine             : '3.0.4', // Caffeine缓存组件版本号
+                                micrometer           : '1.7.0', // Prometheus相关监控依赖，与服务部署的版本号相同
+                                servlet              : '4.0.1', // Servlet的依赖库
+                                commonsCodec         : '1.15', // codec依赖库
+                                jjwt                 : '0.9.1', // jwt依赖库
+                                jaxb                 : '2.3.0', // JAXB依赖库
+                                jaxbBind             : '2.3.0.1', // JAXB依赖库
+                                admin                : '2.3.0', // SpringBootAdmin依赖版本
+                                rocketmq             : '4.9.2', // RocketMQ的依赖库版本
+                                logback              : '1.2.6', // logback组件的依赖库版本
+                                slf4j                : '1.7.32', // SLF4J日志标准的依赖库版本
+                                scsRocketMQ          : '2021.1', // SpringCloudStream依赖库版本
+                                cloudSeata           : '2021.1',
+                                seata                : '1.4.2',
+                                javassist            : '3.21.0-GA',
+                                mybatisPlusStarter   : '1.0.47',
+                                jsqlparser           : '4.5'
+
+]
+ext.libraries = [            // 依赖库引入配置
+
+                             'spring-boot-gradle-plugin'        :
+                                     "org.springframework.boot:spring-boot-gradle-plugin:${versions.springboot}",
+                             'spring-cloud-dependencies'        :
+                                     "org.springframework.cloud:spring-cloud-dependencies:${versions.springcloud}",
+                             'spring-cloud-alibaba-dependencies':
+                                     "com.alibaba.cloud:spring-cloud-alibaba-dependencies:${versions.alibabacloud}",
+                             // 以下的配置为与项目用例测试有关的依赖
+                             'junit-jupiter-api'                :
+                                     "org.junit.jupiter:junit-jupiter-api:${versions.junit}",
+                             'junit-vintage-engine'             :
+                                     "org.junit.vintage:junit-vintage-engine:${versions.junit}",
+                             'junit-jupiter-engine'             :
+                                     "org.junit.jupiter:junit-jupiter-engine:${versions.junit}",
+                             'junit-platform-launcher'          :
+                                     "org.junit.platform:junit-platform-launcher:${versions.junitPlatformLauncher}",
+                             'junit-platform-engine'            :
+                                     "org.junit.platform:junit-platform-engine:${versions.junitPlatformLauncher}",
+                             'junit-jupiter-params'             :
+                                     "org.junit.jupiter:junit-jupiter-params:${versions.junit}",
+                             'junit-bom'                        : "org.junit:junit-bom:${versions.junit}",
+                             'junit-platform-commons'           :
+                                     "org.junit.platform:junit-platform-commons:${versions.junitPlatformLauncher}",
+                             // 以下的配置为Lombok组件有关的依赖
+                             'lombok'                           : "org.projectlombok:lombok:${versions.lombok}",
+                             // 以下的配置为MyBatis开发框架所需要的依赖：
+                             'mybatis'                          : "org.mybatis:mybatis:${versions.mybatis}",
+                             'mybatis-spring-boot-starter'      : "org.mybatis.spring.boot:mybatis-spring-boot-starter:${versions.mybatisSpringBoot}",
+                             // 以下的配置为MybatisPlus开发框架所需要的依赖：
+                             'mybatis-plus'                     : "com.baomidou:mybatis-plus:${versions.mybatisPlus}",
+                             'mybatis-plus-boot-starter'        : "com.baomidou:mybatis-plus-boot-starter:${versions.mybatisPlus}",
+                             'mysql-connector-java'             : "mysql:mysql-connector-java:${versions.mysql}",
+                             'druid'                            : "com.alibaba:druid:${versions.druid}",
+                             // 以下的配置为Swagger有关的依赖库
+                             'springfox-boot-starter'            : "io.springfox:springfox-boot-starter:${versions.swagger}",
+                             // 以下的配置为Nacos有关的依赖库
+                             'nacos-client'                      : "com.alibaba.nacos:nacos-client:${versions.nacos}",
+                             // 以下的配置为Feign与HttpClient有关的依赖库
+                             'httpclient'                        : "org.apache.httpcomponents:httpclient:${versions.httpclient}",
+                             'feign-httpclient'                  : "io.github.openfeign:feign-httpclient:${versions.feignHttpclient}",
+                             // 以下的配置为Sentinel有关的组件依赖
+                             'sentinel-datasource-nacos'         : "com.alibaba.csp:sentinel-datasource-nacos:${versions.sentinel}",
+                             // 以下的配置为LoadBalancer所需要的Caffeine组件有关依赖
+                             'caffeine'                          : "com.github.ben-manes.caffeine:caffeine:${versions.caffeine}",
+                             // 以下的配置为Prometheus服务整合
+                             'micrometer-registry-prometheus': "io.micrometer:micrometer-registry-prometheus:${versions.micrometer}",
+                             'micrometer-core': "io.micrometer:micrometer-core:${versions.micrometer}",
+                             // 以下的配置为JWT的服务整合
+                             'servlet-api'                       : "javax.servlet:javax.servlet-api:${versions.servlet}",
+                             'commons-codec'                     : "commons-codec:commons-codec:${versions.commonsCodec}",
+                             'jjwt'                              : "io.jsonwebtoken:jjwt:${versions.jjwt}",
+                             'jaxb-api'                          : "javax.xml.bind:jaxb-api:${versions.jaxb}",
+                             'jaxb-impl'                         : "com.sun.xml.bind:jaxb-impl:${versions.jaxbBind}",
+                             'jaxb-core'                         : "com.sun.xml.bind:jaxb-core:${versions.jaxbBind}",
+                             // 以下的配置为HibernateValidator实现的JSR303验证标准依赖
+                             'hibernate-validator'               : "org.hibernate.validator:hibernate-validator:${versions.hibernateValidator}",
+                             // 以下的配置为SpringBootAdmin服务整合
+                             'spring-boot-admin-starter-server'  : "de.codecentric:spring-boot-admin-starter-server:${versions.admin}",
+                             'spring-boot-admin-starter-client'  : "de.codecentric:spring-boot-admin-starter-client:${versions.admin}",
+                             // 以下的配置为RocketMQ相关服务的整合依赖
+                             'rocketmq-client'                   : "org.apache.rocketmq:rocketmq-client:${versions.rocketmq}",
+                             'rocketmq-acl'                      : "org.apache.rocketmq:rocketmq-acl:${versions.rocketmq}",
+                             // 以下的配置为RocketMQ与Logback日志组件的服务整合依赖：
+                             'rocketmq-logappender'              : "org.apache.rocketmq:rocketmq-logappender:${versions.rocketmq}",
+                             'logback-core'                      : "ch.qos.logback:logback-core:${versions.logback}",
+                             'logback-classic'                   : "ch.qos.logback:logback-classic:${versions.logback}",
+                             'slf4j-api'                         : "org.slf4j:slf4j-api:${versions.slf4j}",
+                             // 以下的配置为RocketMQ与SpringCloudStream整合服务所需要的依赖：
+                             'spring-cloud-starter-stream-rocketmq': "com.alibaba.cloud:spring-cloud-starter-stream-rocketmq:${versions.scsRocketMQ}",
+                             // 以下的配置为Seata相关的依赖库
+                             'spring-cloud-starter-alibaba-seata' : "com.alibaba.cloud:spring-cloud-starter-alibaba-seata:${versions.cloudSeata}",
+                             'seata-spring-boot-starter' : "io.seata:seata-spring-boot-starter:${versions.seata}",
+                             'javassist'                         : "org.javassist:javassist:${versions.javassist}",
+//                             'mybatis-plus-starter'              : "in.hocg.boot:mybatis-plus-spring-boot-starter:${versions.mybatisPlusStarter}",
+//                             'jsqlparser'                        : "com.github.jsqlparser:jsqlparser:${versions.jsqlparser}"
+]
