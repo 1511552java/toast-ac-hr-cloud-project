@@ -1,4 +1,6 @@
 rootProject.name = 'hr-cloud'
 include 'toast-starter-jwt'
 include 'util'
+include 'access'
+include 'common'
 

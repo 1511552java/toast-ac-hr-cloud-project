@@ -1,6 +1,6 @@
 spring:
   application:
-    name: TOAST-HR-TOKEN
+    name: toast-hr-token
 
 toast:
   security:

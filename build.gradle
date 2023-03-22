@@ -95,6 +95,15 @@ subprojects {                    // 配置子项目
 project(":util") {
     dependencies {}
 }
+project(":common") {
+    dependencies {
+        implementation('org.springframework.boot:spring-boot-starter-web')// 引入SpringBoot依赖
+        implementation(project(":toast-starter-jwt")) // 导入JWT子模块
+        implementation(libraries.'hibernate-validator')
+        implementation('org.springframework.cloud:spring-cloud-starter-openfeign')
+        implementation(project(":util")) // 导入工具子模块
+    }
+}
 
 project(":toast-starter-jwt") {
     dependencies {
@@ -107,5 +116,29 @@ project(":toast-starter-jwt") {
         implementation(libraries.'jaxb-api')
         implementation(libraries.'jaxb-impl')
         implementation(libraries.'jaxb-core')
+    }
+}
+
+project(":access") {
+    dependencies {
+        implementation(libraries.'spring-boot-admin-starter-client')
+        implementation('org.springframework.boot:spring-boot-starter-actuator')
+        implementation(project(":common")) // 导入公共子模块
+        implementation(libraries.'mybatis-plus')
+        implementation(libraries.'mybatis-plus-boot-starter')
+        implementation(libraries.'mysql-connector-java')
+        implementation(libraries.'druid')
+        implementation(libraries.'springfox-boot-starter') // 以下的配置为Swagger有关的依赖库
+        implementation(libraries.'sentinel-datasource-nacos')
+        implementation('com.alibaba.cloud:spring-cloud-starter-alibaba-sentinel')
+        // 以下的依赖库为Nacos注册中心所需要的依赖配置
+        implementation('com.alibaba.cloud:spring-cloud-starter-alibaba-nacos-discovery') {
+            exclude group: 'com.alibaba.nacos', module: 'nacos-client' // 移除旧版本的Nacos依赖
+        }
+        implementation('com.alibaba.cloud:spring-cloud-starter-alibaba-nacos-config') {
+            exclude group: 'com.alibaba.nacos', module: 'nacos-client' // 移除旧版本的Nacos依赖
+        }
+        implementation(libraries.'nacos-client') // 引入与当前的Nacos匹配的依赖库
+        implementation(libraries.'servlet-api')
     }
 }
