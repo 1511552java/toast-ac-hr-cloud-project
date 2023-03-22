@@ -1,4 +1,4 @@
-package com.yootk.provider.access.config;
+package com.toast.provider.access.config;
 
 import com.alibaba.druid.filter.Filter;
 import com.alibaba.druid.filter.logging.Slf4jLogFilter;
@@ -7,6 +7,8 @@ import com.alibaba.druid.pool.DruidDataSource;
 import com.alibaba.druid.wall.WallFilter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,39 +18,41 @@ import java.util.List;
  * @time 2023/3/21
  * @describe 配置自定义Druid数据源
  */
+@Configuration
 public class DruidDataSourceConfiguration {
+    @Bean("druidSource")
     public DruidDataSource getDruidSource(
-            @Value("${spring.toast.datasource.driver-class-name}")
+            @Value("${toast.datasource.driver-class-name}")
             String driverClassName, // 数据库驱动程序
-            @Value("${spring.toast.datasource.url}")
+            @Value("${toast.datasource.url}")
             String url, // 数据库连接地址
-            @Value("${spring.toast.datasource.username}")
+            @Value("${toast.datasource.username}")
             String username, // 数据库的用户名
-            @Value("${spring.toast.datasource.password}")
+            @Value("${toast.datasource.password}")
             String password, // 数据库的用户名
-            @Value("${spring.toast.datasource.druid.initial-size}")
+            @Value("${toast.datasource.druid.initial-size}")
             int initialSize, // 初始化连接数
-            @Value("${spring.toast.datasource.druid.min-idle}")
+            @Value("${toast.datasource.druid.min-idle}")
             int minIdle, // 最小维持连接数
-            @Value("${spring.toast.datasource.druid.max-active}")
+            @Value("${toast.datasource.druid.max-active}")
             int maxActive, // 最大连接数
-            @Value("${spring.toast.datasource.druid.max-wait}")
+            @Value("${toast.datasource.druid.max-wait}")
             long maxWait, // 最长等待时间
-            @Value("${spring.toast.datasource.druid.time-between-eviction-runs-millis}")
+            @Value("${toast.datasource.druid.time-between-eviction-runs-millis}")
             long timeBetweenEvictionRunsMillis, // 关闭空闲连接间隔
-            @Value("${spring.toast.datasource.druid.min-evictable-idle-time-millis}")
+            @Value("${toast.datasource.druid.min-evictable-idle-time-millis}")
             long minEvictableIdleTimeMillis, // 最小存活时间
-            @Value("${spring.toast.datasource.druid.validation-query}")
+            @Value("${toast.datasource.druid.validation-query}")
             String validationQuery, // 验证查询
-            @Value("${spring.toast.datasource.druid.test-while-idle}")
+            @Value("${toast.datasource.druid.test-while-idle}")
             boolean testWhileIdle, // 测试空闲连接是否可用
-            @Value("${spring.toast.datasource.druid.test-on-borrow}")
+            @Value("${toast.datasource.druid.test-on-borrow}")
             boolean testOnBorrow, // 测试后返回连接
-            @Value("${spring.toast.datasource.druid.test-on-return}")
+            @Value("${toast.datasource.druid.test-on-return}")
             boolean testOnReturn, // 测试后归还
-            @Value("${spring.toast.datasource.druid.pool-prepared-statements}")
+            @Value("${toast.datasource.druid.pool-prepared-statements}")
             boolean poolPreparedStatements, // 是否缓存PSTMT
-            @Value("${spring.toast.datasource.druid.max-pool-prepared-statement-per-connection-size}")
+            @Value("${toast.datasource.druid.max-pool-prepared-statement-per-connection-size}")
             int maxPoolPreparedStatementPerConnectionSize, // PSTMT缓存个数
             @Autowired StatFilter sqlStatFilter, // 注入SQL监控
             @Autowired WallFilter sqlWallFilter, // 注入SQL防火墙

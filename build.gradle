@@ -98,7 +98,6 @@ project(":util") {
 project(":common") {
     dependencies {
         implementation('org.springframework.boot:spring-boot-starter-web')// 引入SpringBoot依赖
-        implementation(project(":toast-starter-jwt")) // 导入JWT子模块
         implementation(libraries.'hibernate-validator')
         implementation('org.springframework.cloud:spring-cloud-starter-openfeign')
         implementation(project(":util")) // 导入工具子模块
@@ -124,6 +123,7 @@ project(":access") {
         implementation(libraries.'spring-boot-admin-starter-client')
         implementation('org.springframework.boot:spring-boot-starter-actuator')
         implementation(project(":common")) // 导入公共子模块
+        implementation(project(":toast-starter-jwt")) // 导入JWT子模块
         implementation(libraries.'mybatis-plus')
         implementation(libraries.'mybatis-plus-boot-starter')
         implementation(libraries.'mysql-connector-java')
@@ -132,13 +132,8 @@ project(":access") {
         implementation(libraries.'sentinel-datasource-nacos')
         implementation('com.alibaba.cloud:spring-cloud-starter-alibaba-sentinel')
         // 以下的依赖库为Nacos注册中心所需要的依赖配置
-        implementation('com.alibaba.cloud:spring-cloud-starter-alibaba-nacos-discovery') {
-            exclude group: 'com.alibaba.nacos', module: 'nacos-client' // 移除旧版本的Nacos依赖
-        }
-        implementation('com.alibaba.cloud:spring-cloud-starter-alibaba-nacos-config') {
-            exclude group: 'com.alibaba.nacos', module: 'nacos-client' // 移除旧版本的Nacos依赖
-        }
-        implementation(libraries.'nacos-client') // 引入与当前的Nacos匹配的依赖库
+        implementation('com.alibaba.cloud:spring-cloud-starter-alibaba-nacos-discovery:2.1.0.RELEASE')
+        implementation('com.alibaba.cloud:spring-cloud-starter-alibaba-nacos-config:2.1.0.RELEASE')
         implementation(libraries.'servlet-api')
     }
 }

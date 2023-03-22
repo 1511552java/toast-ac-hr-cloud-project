@@ -1,4 +1,4 @@
-package com.yootk.provider.access.config;
+package com.toast.provider.access.config;
 
 import com.alibaba.druid.filter.stat.StatFilter;
 import com.alibaba.druid.support.http.StatViewServlet;
@@ -57,11 +57,11 @@ public class DruidMonitorConfiguration {
 
     @Bean("sqlStatFilter")
     public StatFilter getSQLStatFilter(
-            @Value("${spring.toast.datasource.druid.stat.merge-sql}")
+            @Value("${toast.datasource.druid.stat.merge-sql}")
             boolean mergeSql,
-            @Value("${spring.toast.datasource.druid.stat.log-slow-sql}")
+            @Value("${toast.datasource.druid.stat.log-slow-sql}")
             boolean logSlowSql,
-            @Value("${spring.toast.datasource.druid.stat.slow-sql-millis}")
+            @Value("${toast.datasource.druid.stat.slow-sql-millis}")
             long slowSqlMillis
     ) { // 定义关于SQL监控的处理部分
         StatFilter filter = new StatFilter();

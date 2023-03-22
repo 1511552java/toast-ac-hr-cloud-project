@@ -1,4 +1,4 @@
-package com.yootk.provider.access.config;
+package com.toast.provider.access.config;
 
 import com.alibaba.druid.support.spring.stat.DruidStatInterceptor;
 import org.springframework.aop.support.DefaultPointcutAdvisor;

@@ -1,4 +1,4 @@
-package com.yootk.provider.access.config;
+package com.toast.provider.access.config;
 
 import com.alibaba.druid.filter.logging.Slf4jLogFilter;
 import org.springframework.context.annotation.Bean;

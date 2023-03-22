@@ -1,0 +1,35 @@
+spring:
+  cloud:
+    nacos:
+      config:
+        server-addr: nacos-server:8848
+        namespace: ae43ba52-fb59-4bb3-9d8f-af33f0825d0f
+        group: HR_GROUP
+        username: nacos
+        password: nacos
+        file-extension: yml
+      discovery:
+        weight: 80
+        service: ${spring.application.name}
+        server-addr: nacos-server:8848
+        namespace: ae43ba52-fb59-4bb3-9d8f-af33f0825d0f
+        group: HR_GROUP
+        username: nacos
+        password: ea86nazjU;
+        metadata:
+          version: 1.0
+          company: toast_bread
+          author: toast
+    sentinel: # Sentinel配置
+      transport: # 通讯配置
+        port: 8719 # Sentinel通讯端口
+        dashboard: sentinel-server:8888 # Sentinel控制面板
+      datasource: # 数据源配置
+        flow-datasource: # 自定义数据源名称
+          nacos: # Nacos存储
+            server-addr: nacos-server:8848 # 服务地址
+            data-id: ${spring.application.name}-flow-rules # 限流规则
+            group-id: SENTINEL_GROUP # 分组ID
+            namespace: c718d627-3378-47fa-ae37-31b7a248d7c7 # 命名空间ID
+            data-type: json # 配置类型
+            rule_type: flow # 规则类型
