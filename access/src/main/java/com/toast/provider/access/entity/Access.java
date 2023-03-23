@@ -29,4 +29,5 @@ public class Access {
      * 访问系统的token令牌
      */
     private String token;
+
 }

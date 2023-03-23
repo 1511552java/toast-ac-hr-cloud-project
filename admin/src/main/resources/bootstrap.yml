@@ -1,0 +1,26 @@
+spring:
+  cloud:
+    nacos:
+      config:
+        server-addr: nacos-server:8848
+        namespace: ae43ba52-fb59-4bb3-9d8f-af33f0825d0f
+        group: HR_GROUP
+        username: nacos
+        password: ea86nazjU;
+        file-extension: yml
+      discovery:
+        weight: 80
+        service: ${spring.application.name}
+        server-addr: nacos-server:8848
+        namespace: ae43ba52-fb59-4bb3-9d8f-af33f0825d0f
+        group: HR_GROUP
+        username: nacos
+        password: ea86nazjU;
+        metadata:
+          version: 1.0
+          company: toast_bread
+          author: toast
+    sentinel: # Sentinel配置
+      transport: # 通讯配置
+        port: 8719 # Sentinel通讯端口
+        dashboard: sentinel-server:8888 # Sentinel控制面板

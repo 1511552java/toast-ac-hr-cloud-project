@@ -1,0 +1,16 @@
+spring:
+  cloud:
+    nacos:
+      discovery:
+        ip: 192.168.0.101
+        server-addr: nacos-server:8848
+        namespace: ae43ba52-fb59-4bb3-9d8f-af33f0825d0f
+        group: HR_GROUP
+        username: nacos
+        password: ea86nazjU;
+    gateway:
+      metrics:
+        enabled: true # 启动服务监控
+      discovery:
+        locator:
+          enabled: false # 取消默认路径配置，

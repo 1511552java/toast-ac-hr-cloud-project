@@ -16,7 +16,7 @@ ext.versions = [                // 定义全部的依赖库版本号
                                 httpclient           : '4.5.13', // HttpClient版本号
                                 feignHttpclient      : '11.6', // FeignHttpClient版本号
                                 sentinel             : '1.8.2', // Sentinel版本号
-                                caffeine             : '3.0.4', // Caffeine缓存组件版本号
+                                caffeine             : '3.1.5', // Caffeine缓存组件版本号
                                 micrometer           : '1.7.0', // Prometheus相关监控依赖，与服务部署的版本号相同
                                 servlet              : '4.0.1', // Servlet的依赖库
                                 commonsCodec         : '1.15', // codec依赖库
@@ -35,10 +35,32 @@ ext.versions = [                // 定义全部的依赖库版本号
                                 jsqlparser           : '4.5'
 
 ]
-ext.libraries = [            // 依赖库引入配置
-
+ext.libraries = [            // springboot依赖库引入配置
                              'spring-boot-gradle-plugin'        :
                                      "org.springframework.boot:spring-boot-gradle-plugin:${versions.springboot}",
+                             'spring-boot-starter-web'          :
+                                     "org.springframework.boot:spring-boot-starter-web:${versions.springboot}",
+                             'spring-boot-configuration-processor' :
+                                     "org.springframework.boot:spring-boot-configuration-processor:${versions.springboot}",
+                             'spring-boot-starter-actuator'     :
+                                     "org.springframework.boot:spring-boot-starter-actuator:${versions.springboot}",
+                             'spring-boot-starter-security'     :
+                                     "org.springframework.boot:spring-boot-starter-security:${versions.springboot}",
+
+                             // spring-cloud 依赖配置
+                             'spring-cloud-starter-openfeign'       :
+                                "org.springframework.cloud:spring-cloud-starter-openfeign:${versions.alibabacloud}",
+                             'spring-cloud-starter-gateway'         :
+                                     "org.springframework.cloud:spring-cloud-starter-gateway:${versions.alibabacloud}",
+                             'spring-cloud-starter-loadlancer'      :
+                                     "org.springframework.cloud:spring-cloud-starter-loadbalancer:${versions.alibabacloud}",
+                             // spring-cloud-alibaba依赖库配置
+                             'spring-cloud-starter-alibaba-nacos-discovery'     :
+                                     "com.alibaba.cloud:spring-cloud-starter-alibaba-nacos-discovery:2.1.0.RELEASE",
+                             'spring-cloud-starter-alibaba-nacos-config'        :
+                                     "com.alibaba.cloud:spring-cloud-starter-alibaba-nacos-config:2.1.0.RELEASE",
+                             'spring-cloud-starter-alibaba-sentinel'            :
+                                     "com.alibaba.cloud:spring-cloud-starter-alibaba-sentinel:2.1.0.RELEASE",
                              'spring-cloud-dependencies'        :
                                      "org.springframework.cloud:spring-cloud-dependencies:${versions.springcloud}",
                              'spring-cloud-alibaba-dependencies':
@@ -78,7 +100,6 @@ ext.libraries = [            // 依赖库引入配置
                              'feign-httpclient'                  : "io.github.openfeign:feign-httpclient:${versions.feignHttpclient}",
                              // 以下的配置为Sentinel有关的组件依赖
                              'sentinel-datasource-nacos'         : "com.alibaba.csp:sentinel-datasource-nacos:${versions.sentinel}",
-                             // 以下的配置为LoadBalancer所需要的Caffeine组件有关依赖
                              'caffeine'                          : "com.github.ben-manes.caffeine:caffeine:${versions.caffeine}",
                              // 以下的配置为Prometheus服务整合
                              'micrometer-registry-prometheus': "io.micrometer:micrometer-registry-prometheus:${versions.micrometer}",
@@ -95,20 +116,8 @@ ext.libraries = [            // 依赖库引入配置
                              // 以下的配置为SpringBootAdmin服务整合
                              'spring-boot-admin-starter-server'  : "de.codecentric:spring-boot-admin-starter-server:${versions.admin}",
                              'spring-boot-admin-starter-client'  : "de.codecentric:spring-boot-admin-starter-client:${versions.admin}",
-                             // 以下的配置为RocketMQ相关服务的整合依赖
-                             'rocketmq-client'                   : "org.apache.rocketmq:rocketmq-client:${versions.rocketmq}",
-                             'rocketmq-acl'                      : "org.apache.rocketmq:rocketmq-acl:${versions.rocketmq}",
-                             // 以下的配置为RocketMQ与Logback日志组件的服务整合依赖：
-                             'rocketmq-logappender'              : "org.apache.rocketmq:rocketmq-logappender:${versions.rocketmq}",
                              'logback-core'                      : "ch.qos.logback:logback-core:${versions.logback}",
                              'logback-classic'                   : "ch.qos.logback:logback-classic:${versions.logback}",
                              'slf4j-api'                         : "org.slf4j:slf4j-api:${versions.slf4j}",
-                             // 以下的配置为RocketMQ与SpringCloudStream整合服务所需要的依赖：
-                             'spring-cloud-starter-stream-rocketmq': "com.alibaba.cloud:spring-cloud-starter-stream-rocketmq:${versions.scsRocketMQ}",
-                             // 以下的配置为Seata相关的依赖库
-                             'spring-cloud-starter-alibaba-seata' : "com.alibaba.cloud:spring-cloud-starter-alibaba-seata:${versions.cloudSeata}",
-                             'seata-spring-boot-starter' : "io.seata:seata-spring-boot-starter:${versions.seata}",
                              'javassist'                         : "org.javassist:javassist:${versions.javassist}",
-//                             'mybatis-plus-starter'              : "in.hocg.boot:mybatis-plus-spring-boot-starter:${versions.mybatisPlusStarter}",
-//                             'jsqlparser'                        : "com.github.jsqlparser:jsqlparser:${versions.jsqlparser}"
 ]

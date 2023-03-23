@@ -3,4 +3,7 @@ include 'toast-starter-jwt'
 include 'util'
 include 'access'
 include 'common'
+include 'admin'
+include 'gateway'
+include 'provider-rating'
 

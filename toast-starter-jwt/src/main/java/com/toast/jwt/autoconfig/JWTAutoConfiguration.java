@@ -27,11 +27,11 @@ public class JWTAutoConfiguration {
     public JWTConfigProperties getJWTConfigProperties() {
         return new JWTConfigProperties();
     }
+
     @Bean
     public ITokenService getTokenServiceBean() {
         return new TokenServiceImpl();
     }
-
 
     @Bean
     public ObjectMapper objectMapper() {

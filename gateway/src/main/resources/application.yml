@@ -1,0 +1,27 @@
+spring:
+  application:
+    name: gateway-server
+  boot:
+    admin:
+      client:
+        username: admintoast
+        password: admintoast
+      url: http://admin-server:9000/
+server:
+  port: 9501
+management:
+  server:
+    port: 9591 # Actuator端口
+  endpoints:
+    web:
+      exposure:
+        include: "*" # 开启全部的监控终端
+      base-path: /actuator  # 访问子路径
+
+gateway: # 自定义的配置项
+  config:
+    jwt:
+      header-name: token # 头信息的参数名称
+      skip-auth-urls: # 跳过的检查路径
+        - /actuator/
+        - /system/provider/access/token

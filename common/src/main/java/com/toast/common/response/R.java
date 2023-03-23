@@ -19,7 +19,7 @@ public class R<T> implements Serializable {
         this(null, code);
     }
     private R(T data, IResultCode code) {
-        this(data, code, code.getMessage());
+        this(data, code.getCode(), code.getMessage());
     }
     private R(IResultCode code, String message) {
         this(null, code, message);
@@ -27,12 +27,24 @@ public class R<T> implements Serializable {
     private R(T data, IResultCode code, String message) {
         this(data, code.getCode(), message);
     }
+
     private R(T data, int code, String message) {
         this.data = data;
         this.code = code;
         this.message = message;
         this.success = ResultCode.SUCCESS.code == this.code;
     }
+
+    public static <T> R<T> data(T data) {
+        return new R(data, ResultCode.SUCCESS);
+    }
+    public static <T> R<T> data(T data, IResultCode code) {
+        return new R(data, code.getCode(), code.getMessage());
+    }
+    public static <T> R<T> data(T data, IResultCode code, String message) {
+        return new R(data, code.getCode(), message);
+    }
+
     public static <T> R<T> success(String message) {
         return new R(ResultCode.SUCCESS, message);
     }
