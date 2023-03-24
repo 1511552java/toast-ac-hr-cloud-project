@@ -1,0 +1,41 @@
+spring:
+  cloud:
+#    stream:
+#      rocketmq:
+#        binder:
+#          name-server: rocketmq-server:9876 # NameServer地址
+#      bindings: # 操作绑定
+#        output: # 配置默认消费通道
+#        destination: TopicToast
+#        group: TOAST_GROUP
+#        access-key: ROCKET_TOAST
+#        secret-key: HELLO_TOAST
+    nacos:
+      discovery:
+        ip: 192.168.0.101
+        weight: 80
+        service: ${spring.application.name}
+        server-addr: nacos-server:8848
+        namespace: ae43ba52-fb59-4bb3-9d8f-af33f0825d0f
+        group: HR_GROUP
+        username: nacos
+        password: ea86nazjU;
+
+#seata:
+#  application-id: seata-server # Seata应用名称
+#  tx-service-group: MY_TEST_TX_GROUP # 事物组
+#  config:
+#    nacos:
+#      server-addr: nacos-server:8848
+#      namespace: 0d7ab725-1e23-45d3-83a3-e0c9576bd945
+#      group: SEATA_GROUP
+#      username: nacos
+#      password: ea86nazjU;
+#  registry:
+#    type: nacos
+#    nacos:
+#      application: seata-server
+#      server-addr: nacos-server:8848
+#      namespace: 0d7ab725-1e23-45d3-83a3-e0c9576bd945
+#      username: nacos
+#      password: ea86nazjU;

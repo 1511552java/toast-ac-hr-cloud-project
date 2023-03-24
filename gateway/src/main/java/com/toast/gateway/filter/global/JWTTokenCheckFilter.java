@@ -50,9 +50,9 @@ public class JWTTokenCheckFilter implements GlobalFilter {
             if (this.tokenService.verifyToken(token)) { // 校验成功
                 return chain.filter(exchange);
             } else {
-
-            }DataBuffer buffer = response.bufferFactory().wrap(JWTResponseCode.TOKEN_TIMEOUT_CODE.toJSON().getBytes(StandardCharsets.UTF_8));
-            return response.writeWith(Flux.just(buffer)); // 异步响应错误
+                DataBuffer buffer = response.bufferFactory().wrap(JWTResponseCode.TOKEN_TIMEOUT_CODE.toJSON().getBytes(StandardCharsets.UTF_8));
+                return response.writeWith(Flux.just(buffer)); // 异步响应错误
+            }
         }
     }
 }

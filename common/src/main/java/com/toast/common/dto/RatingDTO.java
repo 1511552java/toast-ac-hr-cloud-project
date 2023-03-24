@@ -1,10 +1,13 @@
 package com.toast.common.dto;
 
+import lombok.Data;
+
 /**
  * @author 土司先生
  * @time 2023/3/23
  * @describe 工资等级传输类
  */
+@Data
 public class RatingDTO {
     private String rtid;
 

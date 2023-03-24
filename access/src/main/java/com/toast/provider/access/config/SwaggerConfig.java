@@ -20,7 +20,7 @@ public class SwaggerConfig {
     private ApiInfo getApiInfo() {
         return new ApiInfoBuilder().title("【土司面包】部门微服务")
                 .description("我只吃你做的土司面包，因为只有你做的土司面包我才会有灵感")
-                .contact(new Contact("土司边", "", "1234@toast.com"))
+                .contact(new Contact("土司", "", "1234@toast.com"))
                 .license("土司-授权管理")
                 .version("1.0.0")
                 .build();

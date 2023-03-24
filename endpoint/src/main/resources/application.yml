@@ -1,0 +1,63 @@
+server:
+  port: 80
+spring:
+  application:
+    name: hr.endpoint
+#  cloud:
+#    stream:
+#      rocketmq:
+#        binder:
+#          name-server: rocketmq-server:9876 # NameServer地址
+#      bindings: # 操作绑定
+#        output: # 配置默认消费通道
+#        destination: TopicToast
+#        group: TOAST_GROUP
+#        access-key: ROCKET_TOAST
+#        secret-key: HELLO_TOAST
+
+logging:
+  level:
+    root: info 						# 全局日志级别
+
+ribbon:
+  ribbon: # Ribbon相关配置
+    eager-load: # 采用饿汉式进行加载
+      clients: hr.provider.dept,hr.provider.member # 设置服务名称，使用“,”分割
+      enabled: true # 启用饿汉式
+feign:
+  hystrix: # Hystrix 配置
+    enabled: true
+  httpclient:
+    enabled: true # 启用httpclient连接池
+    max-connections: 200 # httpclient处理最大连接数，默认也是200
+    max-connections-per-route: 50 # 单个路径连接最大数量 默认也是50
+    connection-timeout: 2000 # 超时等待
+  compression:
+    request:
+      enabled: true # 请求压缩配置
+      mime-types: application/json,application/xml,text/html,text/xml,text/plain # 压缩类型
+      min-request-size: 512
+    response:
+      enabled: true # 响应压缩
+
+management:
+  server:
+    port: 8081 # Actuator端口
+  endpoints:
+    web:
+      exposure:
+        include: "*" # 开启全部的监控终端
+      base-path: /actuator  # 访问子路径
+
+toast:
+  security:
+    config:
+      jwt:
+        sign: toast
+        issuer: toast_bread
+        secret: Dont_eat_on_toast
+        expire: 864000 # 单位：秒；100天
+      password:
+        encrypt:
+          repeat: 5
+          salt: toast_bread

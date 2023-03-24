@@ -28,8 +28,8 @@ public class RatingController {
     @JWTCheckToken(role = "member")
     @ApiOperation(value = "工资等级列表", notes = "查看公司全部工资等级数据")
     @GetMapping("list")
-    public R<List<RatingDTO>> list() {
-        return R.data(ratingService.list());
+    public List<RatingDTO> list() {
+        return ratingService.list();
     }
 
     @JWTCheckToken(role = "member")
@@ -39,7 +39,7 @@ public class RatingController {
                     required = true, dataType = "string")
     })
     @GetMapping("get")
-    public R<RatingDTO> get(String rtid) {
-        return R.data(ratingService.get(rtid));
+    public RatingDTO get(String rtid) {
+        return ratingService.get(rtid);
     }
 }

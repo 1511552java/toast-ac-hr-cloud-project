@@ -166,6 +166,22 @@ project(":gateway") {
     }
 }
 
+project(":endpoint") {
+    dependencies {
+        implementation(libraries.'spring-boot-starter-web')// 引入SpringBoot依赖
+        implementation(libraries.'spring-cloud-starter-alibaba-nacos-discovery') // 引入nacos服务发现依赖
+        implementation(libraries.'spring-boot-starter-actuator') // 引入springboot的Actuator依赖
+        implementation(libraries.'httpclient') // 配置Feign与HttpClient有关的依赖库
+        implementation(libraries.'feign-httpclient') // 配置Feign与HttpClient有关的依赖库
+        implementation(libraries.'spring-cloud-starter-openfeign') // 引入springboot的Actuator依赖
+        implementation(project(":toast-starter-jwt")) // 导入JWT子模块
+        implementation(project(":common"))
+        implementation(project(":util"))
+//        implementation(libraries.'spring-cloud-starter-alibaba-seata')
+//        implementation(libraries.'spring-cloud-starter-stream-rocketmq')
+    }
+}
+
 project(":provider-rating") {
     dependencies {
         implementation(libraries.'spring-boot-starter-web')// 引入SpringBoot依赖
@@ -179,5 +195,65 @@ project(":provider-rating") {
         implementation(project(':util'))
         implementation(libraries.'spring-cloud-starter-alibaba-sentinel')
 
+    }
+}
+
+project(":provider-member") {
+    dependencies {
+        implementation(libraries.'spring-boot-starter-web')// 引入SpringBoot依赖
+        implementation(libraries.'spring-cloud-starter-alibaba-nacos-discovery') // 引入nacos服务发现依赖
+        implementation(project(":toast-starter-jwt")) // 导入JWT子模块
+        implementation(project(":common"))
+        implementation(project(":util"))
+        implementation(libraries.'mybatis-plus')
+        implementation(libraries.'mybatis-plus-boot-starter')
+        implementation(libraries.'mysql-connector-java')
+        implementation(libraries.'druid')
+        implementation(libraries.'spring-cloud-starter-alibaba-sentinel')
+    }
+}
+
+project(":provider-dept") {
+    dependencies {
+        implementation(libraries.'spring-boot-starter-web')// 引入SpringBoot依赖
+        implementation(libraries.'spring-cloud-starter-alibaba-nacos-discovery') // 引入nacos服务发现依赖
+        implementation(project(":toast-starter-jwt")) // 导入JWT子模块
+        implementation(project(":common"))
+        implementation(project(":util"))
+        implementation(libraries.'mybatis-plus')
+        implementation(libraries.'mybatis-plus-boot-starter')
+        implementation(libraries.'mysql-connector-java')
+        implementation(libraries.'druid')
+        implementation(libraries.'spring-cloud-starter-alibaba-sentinel')
+    }
+}
+
+project(":provider-emp") {
+    dependencies {
+        implementation(libraries.'spring-boot-starter-web')// 引入SpringBoot依赖
+        implementation(libraries.'spring-cloud-starter-alibaba-nacos-discovery') // 引入nacos服务发现依赖
+        implementation(project(":toast-starter-jwt")) // 导入JWT子模块
+        implementation(project(":common"))
+        implementation(project(":util"))
+        implementation(libraries.'mybatis-plus')
+        implementation(libraries.'mybatis-plus-boot-starter')
+        implementation(libraries.'mysql-connector-java')
+        implementation(libraries.'druid')
+        implementation(libraries.'spring-cloud-starter-alibaba-sentinel')
+    }
+}
+
+project(":provider-record") {
+    dependencies {
+        implementation(libraries.'spring-boot-starter-web')// 引入SpringBoot依赖
+        implementation(libraries.'spring-cloud-starter-alibaba-nacos-discovery') // 引入nacos服务发现依赖
+        implementation(project(":toast-starter-jwt")) // 导入JWT子模块
+        implementation(project(":common"))
+        implementation(project(":util"))
+        implementation(libraries.'mybatis-plus')
+        implementation(libraries.'mybatis-plus-boot-starter')
+        implementation(libraries.'mysql-connector-java')
+        implementation(libraries.'druid')
+        implementation(libraries.'spring-cloud-starter-alibaba-sentinel')
     }
 }

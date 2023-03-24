@@ -29,6 +29,6 @@ public class AccessController {
     )
     @GetMapping("token")
     public R<String> token(String aid) {
-        return R.success(accessService.token(aid));
+        return R.data(accessService.token(aid));
     }
 }

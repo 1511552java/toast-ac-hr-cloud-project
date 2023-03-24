@@ -1,0 +1,11 @@
+spring:
+  cloud:
+    nacos:
+      discovery:
+        ip: 192.168.0.101
+        service: ${spring.application.name}
+        server-addr: nacos-server:8848
+        group: HR_GROUP
+        username: nacos
+        password: ea86nazjU;
+        namespace: ae43ba52-fb59-4bb3-9d8f-af33f0825d0f

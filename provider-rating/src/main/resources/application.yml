@@ -1,6 +1,6 @@
 spring:
   application:
-    name: provider-rating-server
+    name: hr.provider.rating
 server:
   port: 8003
 

@@ -56,11 +56,11 @@ ext.libraries = [            // springboot依赖库引入配置
                                      "org.springframework.cloud:spring-cloud-starter-loadbalancer:${versions.alibabacloud}",
                              // spring-cloud-alibaba依赖库配置
                              'spring-cloud-starter-alibaba-nacos-discovery'     :
-                                     "com.alibaba.cloud:spring-cloud-starter-alibaba-nacos-discovery:2.1.0.RELEASE",
+                                     "com.alibaba.cloud:spring-cloud-starter-alibaba-nacos-discovery:2.2.1.RELEASE",
                              'spring-cloud-starter-alibaba-nacos-config'        :
-                                     "com.alibaba.cloud:spring-cloud-starter-alibaba-nacos-config:2.1.0.RELEASE",
+                                     "com.alibaba.cloud:spring-cloud-starter-alibaba-nacos-config:2.2.1.RELEASE",
                              'spring-cloud-starter-alibaba-sentinel'            :
-                                     "com.alibaba.cloud:spring-cloud-starter-alibaba-sentinel:2.1.0.RELEASE",
+                                     "com.alibaba.cloud:spring-cloud-starter-alibaba-sentinel:2.2.1.RELEASE",
                              'spring-cloud-dependencies'        :
                                      "org.springframework.cloud:spring-cloud-dependencies:${versions.springcloud}",
                              'spring-cloud-alibaba-dependencies':
@@ -120,4 +120,9 @@ ext.libraries = [            // springboot依赖库引入配置
                              'logback-classic'                   : "ch.qos.logback:logback-classic:${versions.logback}",
                              'slf4j-api'                         : "org.slf4j:slf4j-api:${versions.slf4j}",
                              'javassist'                         : "org.javassist:javassist:${versions.javassist}",
+                             // 以下的配置为RocketMQ与SpringCloudStream整合服务所需要的依赖：
+                             'spring-cloud-starter-stream-rocketmq': "com.alibaba.cloud:spring-cloud-starter-stream-rocketmq:${versions.scsRocketMQ}",
+                             // 以下的配置为Seata相关的依赖库
+                             'spring-cloud-starter-alibaba-seata' : "com.alibaba.cloud:spring-cloud-starter-alibaba-seata:${versions.cloudSeata}",
+                             'seata-spring-boot-starter' : "io.seata:seata-spring-boot-starter:${versions.seata}"
 ]
