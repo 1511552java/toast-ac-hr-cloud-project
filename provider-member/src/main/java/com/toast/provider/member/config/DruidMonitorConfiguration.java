@@ -28,9 +28,9 @@ public class DruidMonitorConfiguration {
         registrationBean.addInitParameter(
                 StatViewServlet.PARAM_NAME_DENY, ""); // 黑名单
         registrationBean.addInitParameter(
-                StatViewServlet.PARAM_NAME_USERNAME, "muyan"); // 用户名
+                StatViewServlet.PARAM_NAME_USERNAME, "toast"); // 用户名
         registrationBean.addInitParameter(
-                StatViewServlet.PARAM_NAME_PASSWORD, "yootk");// 密码
+                StatViewServlet.PARAM_NAME_PASSWORD, "toast");// 密码
         registrationBean.addInitParameter(
                 StatViewServlet.PARAM_NAME_RESET_ENABLE, "true"); // 允许重置
         return registrationBean;

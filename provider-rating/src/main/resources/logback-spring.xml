@@ -22,7 +22,7 @@
         <Prudent>true</Prudent>
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
             <!-- 设置日志保存路径，本次按照月份创建日志目录，而后每天的文件归档到一组 -->
-            <FileNamePattern>muyan-logs/%d{yyyy-MM}/yootk_%d{yyyy-MM-dd}.log</FileNamePattern>
+            <FileNamePattern>toast-logs/%d{yyyy-MM}/toast_%d{yyyy-MM-dd}.log</FileNamePattern>
             <MaxHistory>365</MaxHistory><!-- 删除超过365天的日志文件 -->
         </rollingPolicy>
         <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
@@ -36,7 +36,7 @@
         <Prudent>true</Prudent>
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
             <!-- 设置日志保存路径，本次按照月份创建日志目录，而后每天的文件归档到一组 -->
-            <FileNamePattern>druid-logs/%d{yyyy-MM}/yootk_druid_slow_sql_%d{yyyy-MM-dd}.log</FileNamePattern>
+            <FileNamePattern>druid-logs/%d{yyyy-MM}/toast_druid_slow_sql_%d{yyyy-MM-dd}.log</FileNamePattern>
             <MaxHistory>365</MaxHistory><!-- 删除超过365天的日志文件 -->
         </rollingPolicy>
         <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
@@ -50,7 +50,7 @@
     <logger name="com.alibaba.druid.filter.stat.StatFilter" level="ERROR">
         <appender-ref ref="druidSqlFile"/>
     </logger>
-    <logger name="com.yootk.provider.dao" level="DEBUG"/>  <!-- 局部日志级别 -->
+    <logger name="com.toast.provider.dao" level="DEBUG"/>  <!-- 局部日志级别 -->
 
     <root level="INFO"> <!-- 全局日志级别 -->
         <appender-ref ref="console"/>

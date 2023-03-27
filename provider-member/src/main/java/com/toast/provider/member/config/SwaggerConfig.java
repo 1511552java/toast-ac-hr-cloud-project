@@ -19,7 +19,7 @@ import springfox.documentation.spring.web.plugins.Docket;
 public class SwaggerConfig {
     private ApiInfo getApiInfo() {
         return new ApiInfoBuilder().title("【土司面包】部门微服务")
-                .description("停，不要说啦，什么土司，土司边，土司，土司边，土司，土司边说的我都想吐了，我不是为了帮你做土司而活啊")
+                .description("古人学问无遗力，少壮功夫老始成。纸上得来终觉浅，绝只此事要躬行 -- 《冬夜读书示子聿·选一》[宋]陆游")
                 .contact(new Contact("土司边", "", "1234@toast.com"))
                 .license("土司-用户管理")
                 .version("1.0.0")

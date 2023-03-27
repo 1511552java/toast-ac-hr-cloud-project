@@ -245,15 +245,27 @@ project(":provider-emp") {
 
 project(":provider-record") {
     dependencies {
-        implementation(libraries.'spring-boot-starter-web')// 引入SpringBoot依赖
-        implementation(libraries.'spring-cloud-starter-alibaba-nacos-discovery') // 引入nacos服务发现依赖
-        implementation(project(":toast-starter-jwt")) // 导入JWT子模块
-        implementation(project(":common"))
-        implementation(project(":util"))
+        // 数据库相关依赖
         implementation(libraries.'mybatis-plus')
         implementation(libraries.'mybatis-plus-boot-starter')
         implementation(libraries.'mysql-connector-java')
         implementation(libraries.'druid')
+        implementation(libraries.'spring-boot-starter-web')// 引入Spring-boot-web 依赖
+        implementation(libraries.'spring-boot-admin-starter-client')// spring-boot-admin客户端依赖
+        implementation('org.springframework.boot:spring-boot-starter-actuator')  // springBoot的actuator监控器依赖
+        implementation(libraries.'spring-cloud-starter-alibaba-nacos-discovery') // 引入nacos服务发现依赖
+        implementation(libraries.'spring-cloud-starter-alibaba-nacos-config') // 引入nacos服务配置
+
+        implementation(libraries.'springfox-boot-starter') // swagger依赖配置
+        // sentinel相关依赖
+        implementation(libraries.'sentinel-datasource-nacos')
         implementation(libraries.'spring-cloud-starter-alibaba-sentinel')
+
+        implementation(project(":toast-starter-jwt")) // 导入JWT子模块
+        implementation(project(":common"))
+        implementation(project(":util"))
+
+        implementation(libraries.'servlet-api')
+        implementation(libraries.'spring-cloud-starter-stream-rocketmq')
     }
 }

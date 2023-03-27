@@ -17,7 +17,7 @@ import org.springframework.context.annotation.ComponentScan;
 @ComponentScan({"com.toast.common.service", "com.toast.endpoint"})
 @EnableFeignClients(basePackages = {"com.toast.common.service"}, defaultConfiguration = FeignConfig.class)
 public class StartHREndpointApplication {
-    public static void main(String[] args) { // 沐言科技：www.yootk.com
+    public static void main(String[] args) {
         SpringApplication.run(StartHREndpointApplication.class, args); // 服务运行
     }
 }

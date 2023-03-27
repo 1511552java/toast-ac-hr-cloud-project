@@ -3,7 +3,7 @@ package com.toast.common.service.abs;
 /**
  * @author 土司先生
  * @time 2023/3/22
- * @describe 提供Service层抽象类
+ * @describe 提供Service层抽象类,公共业务
  */
 public abstract class AbstractService {
     /**

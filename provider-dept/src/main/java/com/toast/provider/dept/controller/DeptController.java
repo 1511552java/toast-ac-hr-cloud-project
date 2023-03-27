@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.*;
  * @describe
  */
 @RestController
-@RequestMapping("")
+@RequestMapping("/hr/provider/dept/*")
 public class DeptController {
     @Autowired
     private IDeptService deptService; // 注入部门业务实例

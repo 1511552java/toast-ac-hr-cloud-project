@@ -23,9 +23,9 @@ public class DruidSpringConfig {
     @Scope("prototype")
     public JdkRegexpMethodPointcut getDruidSpringStatPointcut() {   // 获取切面
         JdkRegexpMethodPointcut pointcut = new JdkRegexpMethodPointcut();
-        pointcut.setPatterns("com.yootk.provider.member.service.*",
-                "com.yootk.provider.member.action.*",
-                "com.yootk.provider.member.dao.*");
+        pointcut.setPatterns("com.toast.provider.member.service.*",
+                "com.toast.provider.member.action.*",
+                "com.toast.provider.member.dao.*");
         return pointcut;
     }
     @Bean("druidSpringStatAdvisor")

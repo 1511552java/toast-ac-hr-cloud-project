@@ -3,7 +3,12 @@ server:
 spring:
   application:
     name: rh.provider.dept
-
+  boot:
+    admin:
+      client:
+        username: admintoast
+        password: admintoast
+        url: http://admin-server:9000/
 toast:
   security:
     config:
@@ -19,7 +24,7 @@ toast:
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource # 配置数据源类型
     driver-class-name: com.mysql.cj.jdbc.Driver # MYSQL8之后的驱动
-    url: jdbc:mysql://mysql-server:3306/toast_rating # 数据库的JDBC连接地址
+    url: jdbc:mysql://mysql-server:3306/toast_dept # 数据库的JDBC连接地址
     username: root
     password: 123456
     druid: # 定义数据库连接所需要的相关配置项
@@ -48,3 +53,12 @@ mybatis-plus:
     db-config:
       logic-not-delete-value: 0 # 数据删除前
       logic-delete-value: 1 # 数据删除后
+
+management:
+  server:
+    port: 9691
+  endpoints:
+    web:
+      exposure:
+        include: "*" # 开放全部的微服务监控端口
+      base-path: /actuator # 监控服务的父路径

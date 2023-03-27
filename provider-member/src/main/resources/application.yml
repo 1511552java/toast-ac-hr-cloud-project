@@ -1,7 +1,12 @@
 spring:
   application:
     name: rh.provider.member
-
+  boot:
+    admin:
+      client:
+        username: admintoast
+        password: admintoast
+        url: http://admin-server:9000/
 server:
   port: 8001
 
@@ -40,3 +45,12 @@ toast:
         merge-sql: true # 统计相同的SQL命令
         log-slow-sql: true # 记录慢SQL
         slow-sql-millis: 10000 # 慢SQL执行时间标准
+
+management:
+  server:
+    port: 9691
+  endpoints:
+    web:
+      exposure:
+        include: "*" # 开放全部的微服务监控端口
+      base-path: /actuator # 监控服务的父路径

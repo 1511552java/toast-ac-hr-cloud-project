@@ -1,0 +1,65 @@
+spring:
+  application:
+    name: hr.provider.record
+  boot:
+    admin:
+      client:
+        username: admintoast
+        password: admintoast
+        url: http://admin-server:9000/
+server:
+  port: 9201
+
+toast:
+  security:
+    config:
+      jwt:
+        sign: toast
+        issuer: toast_bread
+        secret: Dont_eat_on_toast
+        expire: 864000 # 单位：秒；100天
+      password:
+        encrypt:
+          repeat: 5
+          salt: toast_bread
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource # 配置数据源类型
+    driver-class-name: com.mysql.cj.jdbc.Driver # MYSQL8之后的驱动
+    url: jdbc:mysql://mysql-server:3306/toast_record # 数据库的JDBC连接地址
+    username: root
+    password: 123456
+    druid: # 定义数据库连接所需要的相关配置项
+      initial-size: 5 #初始化连接池大小
+      min-idle: 15 #最小维持的连接池大小
+      max-active: 50 # 最大可提供的连接数量
+      max-wait: 60000 # 最长等待时间
+      time-between-eviction-runs-millis: 6000 # 关闭空闲连接间隔（毫秒）
+      min-evictable-idle-time-millis: 30000 # 连接最小的生存时间
+      validation-query: SELECT 1 FROM dual # 数据库的状态检测
+      test-while-idle: true # 判断连接是否可用
+      test-on-borrow: false # 在获得连接之前是否要进行测试
+      test-on-return: false # 归还连接前是否需要进行测试
+      pool-prepared-statements: false # 不缓存PSTMT
+      max-pool-prepared-statement-per-connection-size: 20 # 配置PSTMT缓存个数
+      stat: # 监控配置
+        merge-sql: true # 统计相同的SQL命令
+        log-slow-sql: true # 记录慢SQL
+        slow-sql-millis: 10000 # 慢SQL执行时间标准
+
+mybatis-plus:
+  config-location: classpath:META-INF/mybatis/mybatis.cfg.xml # mybatis配置文件所在路径
+  type-aliases-package: com.toast.provider.access.entity # 定义所有实体操作类的别名所在包
+  mapper-locations: classpath:META-INF/mybatis/mapper/**/*.xml # 所有的mapper映射文件
+  global-config: # 全局配置
+    db-config:
+      logic-not-delete-value: 0 # 数据删除前
+      logic-delete-value: 1 # 数据删除后
+
+management:
+  server:
+    port: 9691
+  endpoints:
+    web:
+      exposure:
+        include: "*" # 开放全部的微服务监控端口
+      base-path: /actuator # 监控服务的父路径
