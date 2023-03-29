@@ -8,7 +8,16 @@ spring:
         password: admintoast
         url: http://admin-server:9000/
 server:
-  port: 8001
+  port: 9612
+
+mybatis-plus:
+  config-location: classpath:META-INF/mybatis/mybatis.cfg.xml # mybatis配置文件所在路径
+  type-aliases-package: com.toast.provider.member.entity # 定义所有实体操作类的别名所在包
+  mapper-locations: classpath:META-INF/mybatis/mapper/**/*.xml # 所有的mapper映射文件
+  global-config: # 全局配置
+    db-config:
+      logic-not-delete-value: 0 # 数据删除前
+      logic-delete-value: 1 # 数据删除后
 
 toast:
   security:

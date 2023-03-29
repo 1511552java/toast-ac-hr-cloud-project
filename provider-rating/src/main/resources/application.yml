@@ -2,7 +2,7 @@ spring:
   application:
     name: hr.provider.rating
 server:
-  port: 8003
+  port: 9615
 
 toast:
   security:
@@ -42,7 +42,7 @@ toast:
 
 mybatis-plus:
   config-location: classpath:META-INF/mybatis/mybatis.cfg.xml # mybatis配置文件所在路径
-  type-aliases-package: com.toast.provider.access.entity # 定义所有实体操作类的别名所在包
+  type-aliases-package: com.toast.provider.rating.entity # 定义所有实体操作类的别名所在包
   mapper-locations: classpath:META-INF/mybatis/mapper/**/*.xml # 所有的mapper映射文件
   global-config: # 全局配置
     db-config:

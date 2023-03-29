@@ -12,11 +12,34 @@ import lombok.Data;
 @Data
 @TableName("dept")
 public class Dept {
+    /**
+     * 部门ID
+     */
     @TableId
     private Long deptno;
+
+    /**
+     * 部门名称
+     */
     private String dname;
+
+    /**
+     * 部门最大人数
+     */
     private Integer bound;
+
+    /**
+     * 部门当前人数
+     */
     private Integer current;
+
+    /**
+     * 部门领导ID
+     */
     private Long empno;
+
+    /**
+     * 部门领导名称
+     */
     private String mname;
 }

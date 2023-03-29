@@ -2,6 +2,7 @@ package com.toast.provider.dept.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.toast.provider.dept.entity.Dept;
+import org.apache.ibatis.annotations.Mapper;
 
 import java.util.Map;
 
@@ -10,6 +11,7 @@ import java.util.Map;
  * @time 2023/3/24
  * @describe
  */
+@Mapper
 public interface DeptMapper extends BaseMapper<Dept> {
     /**
      * 部门已有人数自增1

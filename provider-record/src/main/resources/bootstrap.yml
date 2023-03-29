@@ -15,7 +15,7 @@ spring:
         password: ea86nazjU;
         file-extension: yml
       discovery:
-        ip: 192.168.0.101
+        ip: 192.168.0.103
         weight: 80
         service: ${spring.application.name}
         server-addr: nacos-server:8848
@@ -31,13 +31,13 @@ spring:
       transport: # 通讯配置
         port: 8719 # Sentinel通讯端口
         dashboard: sentinel-server:8888 # Sentinel控制面板
-    stream: # SCS配置项
-      rocketmq: # 整合RoketMQ
-        binder: # 服务绑定
-          name-server: rocketmq-server:9876 # NameServer地址
-      bindings: # 操作绑定
-        input: # 配置默认消费通道
-          destination: TopicToast # 消息主题
-          group: TOAST_PROVIDER_GROUP # 消费组
-          access-key: toast
-          secret-key: toast
+#    stream: # SCS配置项
+#      rocketmq: # 整合RoketMQ
+#        binder: # 服务绑定
+#          name-server: rocketmq-server:9876 # NameServer地址
+#      bindings: # 操作绑定
+#        input: # 配置默认消费通道
+#          destination: TopicToast # 消息主题
+#          group: TOAST_PROVIDER_GROUP # 消费组
+#          access-key: toast
+#          secret-key: toast

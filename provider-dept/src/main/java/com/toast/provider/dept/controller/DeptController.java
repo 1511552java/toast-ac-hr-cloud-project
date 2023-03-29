@@ -35,7 +35,7 @@ public class DeptController {
                     required = true, dataType = "string")
     })
     @JWTCheckToken(role = "dept", action = "dept:edit")
-    @PostMapping("edit")
+    @PutMapping
     public Object edit(@RequestBody DeptDTO dto) {
         return this.deptService.edit(dto);
     }
@@ -61,6 +61,7 @@ public class DeptController {
     public Object get(long deptno) {
         return this.deptService.get(deptno);
     }
+
     @ApiOperation(value = "部门领导变更", notes = "修改部门已有的领导信息")
     @ApiImplicitParams({
             @ApiImplicitParam(name = "dto", value = "部门JSON数据",
@@ -79,7 +80,7 @@ public class DeptController {
                     required = true, dataType = "string")
     })
     @JWTCheckToken(role = "dept", action = "dept:add")
-    @PostMapping("add")
+    @PostMapping
     public Object add(@RequestBody DeptDTO dto) {
         return this.deptService.add(dto);
     }
@@ -90,7 +91,7 @@ public class DeptController {
                     required = true, dataType = "int")
     })
     @JWTCheckToken(role = "dept", action = "dept:remove")
-    @DeleteMapping("remove")
+    @DeleteMapping
     public Object remove(long deptno) {
         return this.deptService.remove(deptno);
     }

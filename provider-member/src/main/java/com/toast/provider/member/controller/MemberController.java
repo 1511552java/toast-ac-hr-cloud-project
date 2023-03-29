@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @describe
  */
 @RestController
-@RequestMapping("/hr/provider/member/member/*")
+@RequestMapping("/hr/provider/member/member*")
 public class MemberController {
     @Autowired
     private IMemberService memberService;
@@ -33,20 +33,18 @@ public class MemberController {
     })
     @SentinelResource(value = "list", blockHandlerClass = MemberBlockHandler.class, blockHandler = "listHandler")
     @JWTCheckToken(role = "member", action = "member:list")
-    @GetMapping("get")
+    @GetMapping("list")
     public Object list(Long currentPage, Long lineSize, String column, String keyword) { // 查询全部工资等级
         return this.memberService.split(currentPage, lineSize, column, keyword); // 响应数据
     }
-
-
 
     @ApiOperation(value = "获取用户信息", notes = "根据用户ID查询用户完整数据")
     @ApiImplicitParams({
             @ApiImplicitParam(name = "mid", value = "用户ID", required = true, dataType = "string")
     })
+    @SentinelResource(value = "get", blockHandlerClass = MemberBlockHandler.class, blockHandler = "listHandler")
     @GetMapping("get")
     public MemberDTO get(String mid) {
-        MemberDTO dto = this.memberService.get(mid);
-        return dto; // 数据响应
+        return this.memberService.get(mid); // 数据响应
     }
 }

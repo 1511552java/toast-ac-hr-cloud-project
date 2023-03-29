@@ -15,7 +15,7 @@ spring:
         password: ea86nazjU;
         file-extension: yml
       discovery:
-        ip: 192.168.0.101
+        ip: 192.168.0.103
         weight: 80
         service: ${spring.application.name}
         server-addr: nacos-server:8848

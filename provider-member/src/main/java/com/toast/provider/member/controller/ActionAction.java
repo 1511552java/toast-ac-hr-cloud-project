@@ -28,6 +28,7 @@ public class ActionAction {
     public Object listByRole(String rid) { // 查询全部工资等级
         return this.actionService.listByRole(rid); // 响应数据
     }
+
     @ApiOperation(value = "查看用户对应的角色编号集合", notes = "根据指定的用户ID查询该用户对应的角色ID，以便于前端菜单的生成")
     @ApiImplicitParams({
             @ApiImplicitParam(name = "mid", value = "角色ID", required = true, dataType = "string")

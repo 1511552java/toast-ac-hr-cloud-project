@@ -9,4 +9,21 @@ import lombok.Data;
  */
 @Data
 public class MemberDTO {
+    /**
+     * 成员ID
+     */
+    private String mid;
+
+    /**
+     * 用户名称
+     */
+    private String name;
+
+    /**
+     * 密码
+     */
+    private String password;
+
+
+    private int flag;
 }

@@ -1,5 +1,5 @@
 server:
-  port: 9301
+  port: 9614
 spring:
   application:
     name: rh.provider.emp
@@ -19,7 +19,7 @@ toast:
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource # 配置数据源类型
     driver-class-name: com.mysql.cj.jdbc.Driver # MYSQL8之后的驱动
-    url: jdbc:mysql://mysql-server:3306/toast_dept # 数据库的JDBC连接地址
+    url: jdbc:mysql://mysql-server:3306/toast_emp # 数据库的JDBC连接地址
     username: root
     password: 123456
     druid: # 定义数据库连接所需要的相关配置项
@@ -42,7 +42,7 @@ toast:
 
 mybatis-plus:
   config-location: classpath:META-INF/mybatis/mybatis.cfg.xml # mybatis配置文件所在路径
-  type-aliases-package: com.toast.provider.access.entity # 定义所有实体操作类的别名所在包
+  type-aliases-package: com.toast.provider.emp.entity # 定义所有实体操作类的别名所在包
   mapper-locations: classpath:META-INF/mybatis/mapper/**/*.xml # 所有的mapper映射文件
   global-config: # 全局配置
     db-config:

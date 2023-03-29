@@ -55,7 +55,7 @@ public class EmpController {
     })
     @SentinelResource(value = "add", blockHandlerClass = EmpBlockHandler.class, blockHandler = "addHandler")
     @JWTCheckToken(role = "emp", action = "emp:add")
-    @PostMapping("add")
+    @PostMapping
     public Object add(@RequestBody EmpDTO dto) {
         log.info("雇员微服务增加数据。{}", dto);
         return this.empService.add(dto);
@@ -67,7 +67,7 @@ public class EmpController {
     })
     @SentinelResource(value = "edit", blockHandlerClass = EmpBlockHandler.class, blockHandler = "editHandler")
     @JWTCheckToken(role = "emp", action = "emp:edit")
-    @PostMapping("edit")
+    @PutMapping
     public Object edit(@RequestBody EmpDTO dto) {
         log.info("雇员微服务修改数据。{}", dto);
         return this.empService.edit(dto);
@@ -80,7 +80,7 @@ public class EmpController {
     })
     @SentinelResource(value = "remove", blockHandlerClass = EmpBlockHandler.class, blockHandler = "removeHandler")
     @JWTCheckToken(role = "emp", action = "emp:edit")
-    @DeleteMapping("remove")
+    @DeleteMapping
     public Object remove(Long empno) {
         return this.empService.remove(empno);
     }

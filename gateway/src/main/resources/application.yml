@@ -17,7 +17,7 @@ spring:
         password: ea86nazjU;
         file-extension: yml
       discovery:
-        ip: 192.168.0.101
+        ip: 192.168.0.103
         server-addr: nacos-server:8848
         namespace: ae43ba52-fb59-4bb3-9d8f-af33f0825d0f
         group: HR_GROUP
@@ -29,6 +29,10 @@ spring:
       discovery:
         locator:
           enabled: false # 取消默认路径配置，
+    sentinel: # Sentinel配置
+      transport: # 通讯配置
+        port: 8719 # Sentinel通讯端口
+        dashboard: sentinel-server:8888 # Sentinel控制面板
 server:
   port: 9501
 management:
