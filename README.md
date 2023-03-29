@@ -1,17 +1,83 @@
 # hr-cloud-project
 
-01 - 【构建Gradle项目目录结构】
+​		练习项目：hr-cloud-project。原教程：https://www.bilibili.com/video/BV1yu411i74m/?spm_id_from=333.999.0.0&vd_source=4496e55e7ee633a5ac9331ab94763cb9  。 一位大佬技术的教程，值得一看。
 
-提供 build.gradle, settings.gradle, dependencies.gradle（非核心配置文件）
+感想：
+
+​        小编把项目重头到尾从新写的一遍。以“toast”为包的核心名称。体会到了微服务之间的运作。前提是要先掌握SpringCloudAlibaba套组件。或者有Netfilx的经验也可以(不过有经验的应该不会重新搞这个吧)
+
+hr-cloud-project项目：用于练习spring-cloud-alibaba套件；具体介绍如下：
+
+>hr-cloud-project
+>├─access                       系统接入服务
+>├─common                   common公共模块
+>├─endpoint                   服务消费端/服务客户端
+>├─gateway                     网关路由服务
+>├─provider-dept           部门管理服务
+>├─provider-emp           雇员管理服务
+>├─provider-member    用户管理服务  
+>├─provider-rating        工资等级管理服务
+>├─provider-record       日志采集管理
+>├─toast-starter-jwt       jwt认证服务
+>└─util                              util模块
 
 
 
-02 - 新增【util】工具模块；提供MD5加密，提供基于base64的加密解密
+项目采用Nacos负责服务发现与服务注册
 
-03 - 新增【toast-hr-jwt】模块; 使用JWT进行各个服务节点之间授权认证管理，而且是现阶段最轻量的数据验证服务，早期的SpringCloudNetflix使用OAuth2，但是随着SpringCloud版本升级，以及各种配置抵触，spring默认不推荐使用这种方式
+使用SpringCloudGateway作为路由转发网关
+
+Sentinel负责熔断，限流操作处理
+
+使用Feign实现接口远程调用服务, Ribbon 负责负载均衡处理。
+
+使用Seata负载分布式事务
+
+提供
+
+access（系统接入服务），
+
+provider-dept(部门管理)，
+
+provider-emp(雇员管理)，
+
+provider-member(用户管理),
+
+provider-rating(工资等级管理服务)，
+
+provider-record(日志采集管理服务), 
+
+toast-starter-record (jwt认证服务) 
+
+以上服务都有各自的数据库。所以分布式之间的事务交由seata负责。
+
+综上服务一共有
+
+access（系统接入服务），
+
+provider-dept(部门管理)，
+
+provider-emp(雇员管理)，
+
+provider-member(用户管理),
+
+provider-rating(工资等级管理服务)，
+
+provider-record(日志采集管理服务), 
+
+toast-starter-record (jwt认证服务) ，
+
+Nacos,
+
+Sentinel,
+
+ReocktMQ,
+
+gateway
+
+endpoint,
+
+该项目大概有12 个服务节点。
 
 
 
-04 - 引入【access】系统接入服务节点
-
-​       access - 接入系统服务节点 每一个系统都会有一个Access的注册信息，这个注册信息必须在系统正式接入的时候才允许提供，有了 相应的授权信息之后，在进行Token生成的时候就可以通过系统注册的aid编号查询到对应的角色以及权限数据
