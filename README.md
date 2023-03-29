@@ -2,25 +2,20 @@
 
 hr-cloud-project项目：用于练习spring-cloud-alibaba套件；具体介绍如下：
 
-结构如下：
+hr-cloud-project
 
->hr-cloud-project
->
->├─access                       系统接入服务
->
->├─admin                       spring-boot-admin监控服务
->├─common                   common公共模块
->├─endpoint                   服务消费端/服务客户端
->├─gateway                     网关路由服务
->├─provider-dept           部门管理服务
->├─provider-emp           雇员管理服务
->├─provider-member    用户管理服务  
->├─provider-rating        工资等级管理服务
->├─provider-record       日志采集管理
->├─toast-starter-jwt       jwt认证服务
->└─util                              util模块
-
-
+├─access                       系统接入服务
+├─admin                       spring-boot-admin监控服务
+├─common                   common公共模块
+├─endpoint                   服务消费端/服务客户端
+├─gateway                     网关路由服务
+├─provider-dept           部门管理服务
+├─provider-emp           雇员管理服务
+├─provider-member    用户管理服务  
+├─provider-rating        工资等级管理服务
+├─provider-record       日志采集管理
+├─toast-starter-jwt       jwt认证服务
+└─util                              util模块
 
 运行截图如下：
 
