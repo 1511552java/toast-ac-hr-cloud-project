@@ -18,8 +18,7 @@ import java.util.List;
 @FeignClient(
         value = "hr.gateway",
         configuration = FeignConfig.class,
-        fallbackFactory = RatingServiceFallbackFactory.class,
-        url = "gateway:9501")
+        fallbackFactory = RatingServiceFallbackFactory.class)
 public interface IRatingService {
     /**
      * @return 远程REST接口

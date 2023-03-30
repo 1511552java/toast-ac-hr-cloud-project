@@ -21,4 +21,9 @@ public class RatingEndpointServiceImpl implements IRatingEndpointService {
     public List<RatingDTO> list() {
         return this.ratingService.list();
     }
+
+    @Override
+    public RatingDTO get(String rtid) {
+        return this.ratingService.get(rtid);
+    }
 }

@@ -177,7 +177,7 @@ project(":endpoint") {
         implementation(project(":toast-starter-jwt")) // 导入JWT子模块
         implementation(project(":common"))
         implementation(project(":util"))
-//        implementation(libraries.'spring-cloud-starter-alibaba-seata')
+        implementation(libraries.'spring-cloud-starter-alibaba-seata')
 //        implementation(libraries.'spring-cloud-starter-stream-rocketmq')
     }
 }

@@ -17,7 +17,6 @@ import java.util.Set;
  */
 @FeignClient(
         value = "hr.gateway",
-        url = "gateway:9051",
         configuration = FeignConfig.class,
         fallbackFactory = ActionServiceFallbackFactory.class
 )

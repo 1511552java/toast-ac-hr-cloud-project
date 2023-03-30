@@ -15,7 +15,6 @@ import java.util.Map;
  * @describe 成员服务层
  */
 @FeignClient(
-        url = "gateway:9501",
         value = "hr.gateway",
         configuration = FeignConfig.class,
         fallbackFactory = MemberServiceFallbackFactor.class

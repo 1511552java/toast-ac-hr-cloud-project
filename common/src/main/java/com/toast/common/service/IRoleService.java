@@ -19,8 +19,7 @@ import java.util.Set;
 @FeignClient(
         value = "hr.gateway",
         configuration = FeignConfig.class,
-        fallbackFactory = RoleServiceFallbackFactory.class,
-        url = "gateway:9501"
+        fallbackFactory = RoleServiceFallbackFactory.class
 )
 public interface IRoleService {
     /**

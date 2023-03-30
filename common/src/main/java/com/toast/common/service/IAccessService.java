@@ -11,7 +11,6 @@ import org.springframework.cloud.openfeign.FeignClient;
  * @describe 系统接入服务层
  */
 @FeignClient(
-        url = "gateway:9501",
         value = "hr.gateway",
         configuration = FeignConfig.class,
         fallbackFactory = AccessServiceFallbackFactory.class

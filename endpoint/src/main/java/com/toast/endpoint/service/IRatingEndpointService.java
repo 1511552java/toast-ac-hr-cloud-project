@@ -14,4 +14,11 @@ public interface IRatingEndpointService {
      * 工资等级信息列表
      */
     List<RatingDTO> list();
+
+    /**
+     * 获取工资等级详情
+     * @param rtid
+     * @return
+     */
+    RatingDTO get(String rtid);
 }

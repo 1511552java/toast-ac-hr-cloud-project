@@ -16,7 +16,8 @@ import java.util.Map;
  * @time 2023/3/24
  * @describe
  */
-@FeignClient(value = "hr.gateway", // 使用网关的名称进行访问
+@FeignClient(
+        value = "hr.gateway", // 使用网关的名称进行访问
         configuration = FeignConfig.class, // 定义要访问的微服务实例名称
         fallbackFactory = EmpServiceFallbackFactory.class) // Fallback处理
 public interface IEmpService {

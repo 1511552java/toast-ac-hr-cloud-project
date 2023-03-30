@@ -1,4 +1,6 @@
 spring:
+  main:
+    allow-bean-definition-overriding: true # 允许定义重复的Bean
   cloud:
 #    stream:
 #      rocketmq:
@@ -12,7 +14,7 @@ spring:
 #        secret-key: HELLO_TOAST
     nacos:
       discovery:
-        ip: 192.168.0.101
+        ip: 192.168.0.103
         weight: 80
         service: ${spring.application.name}
         server-addr: nacos-server:8848
@@ -20,6 +22,7 @@ spring:
         group: HR_GROUP
         username: nacos
         password: ea86nazjU;
+
 
 #seata:
 #  application-id: seata-server # Seata应用名称
@@ -39,3 +42,16 @@ spring:
 #      namespace: 0d7ab725-1e23-45d3-83a3-e0c9576bd945
 #      username: nacos
 #      password: ea86nazjU;
+feign:
+  httpclient:
+    enabled: true # 启用httpclient连接池
+    max-connections: 200 # httpclient处理的最大连接数量
+    max-connections-per-route: 50 # 单个路径连接的最大数量
+    connection-timeout: 20000
+  compression:
+    request:
+      enabled: true # 请求压缩配置
+      mime-types: application/json,application/xml,text/html,text/xml,text/plain # 压缩类型
+      min-request-size: 1024 # 超过这个大小触发压缩
+    response:
+      enabled: true # 响应压缩
