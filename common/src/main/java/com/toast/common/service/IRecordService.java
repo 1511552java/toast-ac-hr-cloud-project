@@ -1,5 +1,8 @@
 package com.toast.common.service;
 
+import com.toast.common.service.config.FeignConfig;
+import com.toast.common.service.fallback.RecordServiceFallbackFactory;
+import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.Map;
@@ -9,6 +12,9 @@ import java.util.Map;
  * @time 2023/3/24
  * @describe
  */
+@FeignClient(value = "hr.gateway", // 使用网关的名称进行访问
+        configuration = FeignConfig.class, // 定义要访问的微服务实例名称
+        fallbackFactory = RecordServiceFallbackFactory.class) // Fallback处理
 public interface IRecordService {
 
     /**
@@ -25,6 +31,5 @@ public interface IRecordService {
             @RequestParam("currentPage") long currentPage,
             @RequestParam("lineSize") long lineSize,
             @RequestParam("column") String column,
-            @RequestParam("keyword") String keyword
-    );
+            @RequestParam("keyword") String keyword);
 }

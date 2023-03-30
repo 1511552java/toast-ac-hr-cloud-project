@@ -54,15 +54,15 @@ public class EmpEndpointController {
 
     @JWTCheckToken(role = "emp", action = "emp:edit")
     @PostMapping("edit")
-    @GlobalTransactional // 全局事务处理
+    @GlobalTransactional
     public R<EmpResponseType> edit(@RequestBody EmpDTO dto) {    // 雇员增加
         return R.data(this.empEndpointService.edit(dto));
     }
 
     @JWTCheckToken(role = "emp", action = "emp:remove")
     @DeleteMapping("remove")
-    @GlobalTransactional // 全局事务处理
-    public R<EmpResponseType> remove(long empno) {    // 雇员更新前查询
+    @GlobalTransactional
+    public R<EmpResponseType> remove(long empno) {
         return R.data(this.empEndpointService.remove(empno));
     }
 }

@@ -3,8 +3,11 @@ package com.toast.jwt.autoconfig;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.toast.jwt.config.EncryptConfigProperties;
 import com.toast.jwt.config.JWTConfigProperties;
+import com.toast.jwt.service.IEncryptService;
 import com.toast.jwt.service.ITokenService;
+import com.toast.jwt.service.impl.EncryptServiceImpl;
 import com.toast.jwt.service.impl.TokenServiceImpl;
+import com.toast.jwt.util.JWTMemberDataService;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -26,6 +29,16 @@ public class JWTAutoConfiguration {
     @Bean("jwtConfigProperties")
     public JWTConfigProperties getJWTConfigProperties() {
         return new JWTConfigProperties();
+    }
+
+    @Bean("memberDataService")
+    public JWTMemberDataService getMemberDataService() {
+        return new JWTMemberDataService();
+    }
+
+    @Bean("encryptService")
+    public IEncryptService getEncryptServiceBean() {
+        return new EncryptServiceImpl();
     }
 
     @Bean

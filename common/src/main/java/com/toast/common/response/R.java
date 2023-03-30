@@ -57,12 +57,12 @@ public class R<T> implements Serializable {
         return new R(resultCode, message);
     }
 
-    public static <T> R<T> fail(String message) {
-        return new R(ResultCode.FAILURE, message);
+    public static <T> R<T> success(T data) {
+        return new R(data, ResultCode.SUCCESS.getCode(), ResultCode.SUCCESS.getMessage());
     }
 
-    public static <T> R<T> fail(int code, String message) {
-        return new R((Object)null, code,  message);
+    public static <T> R<T> fail(String message) {
+        return new R(ResultCode.FAILURE, message);
     }
 
     public static <T> R<T> fail(IResultCode resultCode) {
@@ -71,6 +71,10 @@ public class R<T> implements Serializable {
 
     public static <T> R<T> fail(IResultCode resultCode, String message) {
         return new R(resultCode, message);
+    }
+
+    public static <T> R<T> fail(T data) {
+        return new R(data, ResultCode.FAILURE.getCode(), ResultCode.FAILURE.getMessage());
     }
 
     public static <T> R<T> status(boolean flag) {

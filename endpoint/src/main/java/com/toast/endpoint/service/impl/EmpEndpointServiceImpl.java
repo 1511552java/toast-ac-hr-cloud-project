@@ -1,6 +1,5 @@
 package com.toast.endpoint.service.impl;
 
-import ch.qos.logback.classic.db.names.TableName;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.toast.common.dto.DeptDTO;
 import com.toast.common.dto.EmpDTO;
@@ -10,7 +9,12 @@ import com.toast.common.service.IDeptService;
 import com.toast.common.service.IEmpService;
 import com.toast.common.service.IRatingService;
 import com.toast.common.type.EmpResponseType;
+import com.toast.common.type.RecordOperateType;
+import com.toast.common.type.TableName;
 import com.toast.endpoint.service.IEmpEndpointService;
+import com.toast.endpoint.service.IRecordMessageService;
+import com.toast.endpoint.service.abs.AbstractEndpointService;
+import com.toast.util.MemberStore;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -23,13 +27,15 @@ import java.util.Map;
  * @describe
  */
 @Service
-public class EmpEndpointServiceImpl implements IEmpEndpointService {
+public class EmpEndpointServiceImpl extends AbstractEndpointService implements IEmpEndpointService {
     @Autowired
     private IEmpService empService;
     @Autowired
     private IDeptService deptService;
     @Autowired
     private IRatingService ratingService;
+    @Autowired
+    private IRecordMessageService recordMessageService;
     @Override
     public Map<String, Object> split(long currentPage, long lineSize, String column, String keyword) {
         return this.empService.split(currentPage, lineSize, column, keyword);
@@ -66,6 +72,16 @@ public class EmpEndpointServiceImpl implements IEmpEndpointService {
         if (this.empService.add(dto)) {    // 数据增加成功
             this.deptService.editIncrementCurrent(dto.getDeptno()); //更新部门中的已有雇员数量
         }
+        RecordDTO record = new RecordDTO(); // 实例化记录操作对象实例
+        record.setMid(MemberStore.getMid()); // 用户ID
+        record.setName(MemberStore.getName()); // 用户姓名
+        record.setOperate(RecordOperateType.ADD); // 设置操作类型
+        record.setTab(TableName.EMP); // 设置操作表名称
+        record.setUdate(new Date()); // 记录存储日期
+        try {
+            record.setData(this.objectMapper.writeValueAsString(dto)); // 操作数据转为json保存
+        } catch (JsonProcessingException e) {}
+        this.recordMessageService.sendRecord(record);
         return EmpResponseType.SUCCESS;
     }
 
@@ -110,6 +126,16 @@ public class EmpEndpointServiceImpl implements IEmpEndpointService {
             mgrDTO.setMname(dto.getEname());;
             this.deptService.editDeptMgr(mgrDTO); // 更新部门数据
         }
+        RecordDTO record = new RecordDTO(); // 实例化记录操作对象实例
+        record.setMid(MemberStore.getMid()); // 用户ID
+        record.setName(MemberStore.getName()); // 用户姓名
+        record.setOperate(RecordOperateType.EDIT); // 设置操作类型
+        record.setTab(TableName.EMP); // 设置操作表名称
+        record.setUdate(new Date()); // 记录存储日期
+        try {
+            record.setData(this.objectMapper.writeValueAsString(dto)); // 操作数据转为json保存
+        } catch (JsonProcessingException e) {}
+        this.recordMessageService.sendRecord(record);
         return EmpResponseType.SUCCESS;
     }
 
@@ -130,7 +156,16 @@ public class EmpEndpointServiceImpl implements IEmpEndpointService {
         this.deptService.editDecrementCurrent(emp.getDeptno());
         // 5、删除当前雇员信息
         this.empService.remove(empno);
-
+        RecordDTO record = new RecordDTO(); // 实例化记录操作对象实例
+        record.setMid(MemberStore.getMid()); // 用户ID
+        record.setName(MemberStore.getName()); // 用户姓名
+        record.setOperate(RecordOperateType.EDIT); // 设置操作类型
+        record.setTab(TableName.EMP); // 设置操作表名称
+        record.setUdate(new Date()); // 记录存储日期
+        try {
+            record.setData(this.objectMapper.writeValueAsString(emp)); // 操作数据转为json保存
+        } catch (JsonProcessingException e) {}
+        this.recordMessageService.sendRecord(record);
         return EmpResponseType.SUCCESS;
     }
 }

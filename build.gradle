@@ -178,7 +178,8 @@ project(":endpoint") {
         implementation(project(":common"))
         implementation(project(":util"))
         implementation(libraries.'spring-cloud-starter-alibaba-seata')
-//        implementation(libraries.'spring-cloud-starter-stream-rocketmq')
+        implementation(libraries.'seata-spring-boot-starter')
+        implementation(libraries.'spring-cloud-starter-stream-rocketmq')
     }
 }
 
